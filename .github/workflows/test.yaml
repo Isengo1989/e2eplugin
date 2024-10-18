@@ -10,7 +10,7 @@ on:
 
 jobs:
   generate_api_schema:
-    name: ""
+    name: "Starup shopware and run E2ETest"
     runs-on: ubuntu-latest
     container: "shopware/development:8.3-composer-2"
     env:
