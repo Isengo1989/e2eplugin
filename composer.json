@@ -1,0 +1,22 @@
+{
+    "name": "e2e-test/e2-e-test",
+    "description": "e2e-test/e2-e-test",
+    "type": "shopware-platform-plugin",
+    "version": "1.0.0",
+    "license": "MIT",
+    "require": {
+        "shopware/core": "~6.6.0"
+    },
+    "extra": {
+        "shopware-plugin-class": "E2eTest\\E2ETest",
+        "label": {
+            "de-DE": "E2E test plugin",
+            "en-GB": "E2E test plugin"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "E2eTest\\": "src/"
+        }
+    }
+}
