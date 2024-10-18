@@ -10,7 +10,7 @@ on:
 
 jobs:
   generate_api_schema:
-    name: "Generate an openapi3 schema for the given api type"
+    name: ""
     runs-on: ubuntu-latest
     container: "shopware/development:8.3-composer-2"
     env:
@@ -19,9 +19,6 @@ jobs:
       APP_URL: http://localhost:8000
       APP_SECRET: devsecret
       BLUE_GREEN_DEPLOYMENT: 0
-      SCHEMA_NAME: ""
-      SCHEMA_FLAGS: ""
-      SCHEMA_FILE: ""
 
     services:
       database:
@@ -45,3 +42,4 @@ jobs:
 
       - name: Pull E2ETest content
         run: |
+          bin/console plugin:refresh
