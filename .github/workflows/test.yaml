@@ -45,7 +45,7 @@ jobs:
 
       - name: checkout latest release
         run: |
-          git config --global --add safe.directory /__w/E2ETest/E2ETest
+          git config --global --add safe.directory /__w/e2eplugin/e2eplugin
           git checkout $SWTAG
 
       - name: Pull E2ETest content
