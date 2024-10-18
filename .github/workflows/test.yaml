@@ -30,6 +30,7 @@ jobs:
     steps:
       - name: Test
         run: |
+          pwd
           echo "done"
 
       - name: Checkout Shopware
