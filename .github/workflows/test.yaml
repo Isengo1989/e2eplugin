@@ -40,6 +40,18 @@ jobs:
           ref: v6.6.7.0
           fetch-depth: 0
 
+      - name: Upload root directory
+        uses: actions/upload-artifact@v3
+        with:
+          name: root-directory
+          path: .
+
+      - name: Download root directory
+        uses: actions/download-artifact@v3
+        with:
+          name: root-directory
+          path: /__w/e2eplugin/e2eplugin/custom/plugins
+
       - name: configure job
         run: |
           git config --global --add safe.directory /__w/e2eplugin/e2eplugin
