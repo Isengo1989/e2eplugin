@@ -17,7 +17,13 @@ env:
   PLUGIN_URL: github.com/Isengo1989/plugin-ci.git
 
 jobs:
-  # This workflow contains a single job called "build"
+  vars:
+    runs-on: ubuntu-22.04
+    outputs:
+      PLUGIN_NAME: ${{ env.PLUGIN_NAME }}
+      PLUGIN_URL: ${{ env.PLUGIN_URL }}
+    steps:
+      - run: echo "Exposing env vars"
   generate-schema:
     uses: Isengo1989/plugin-ci/.github/workflows/plugin.yml@main
     with:
