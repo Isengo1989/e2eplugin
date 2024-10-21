@@ -31,7 +31,8 @@ jobs:
           echo "PLUGIN_URL=${{ env.PLUGIN_URL }}" >> $GITHUB_ENV
           echo "::set-output name=PLUGIN_NAME::${{ env.PLUGIN_NAME }}"
           echo "::set-output name=PLUGIN_URL::${{ env.PLUGIN_URL }}"
-  generate-schema:
+  test-plugin:
+    needs: vars
     uses: Isengo1989/plugin-ci/.github/workflows/plugin.yml@main
     with:
       plugin_name: ${{ needs.vars.outputs.PLUGIN_NAME }}
