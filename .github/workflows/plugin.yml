@@ -22,10 +22,15 @@ jobs:
   vars:
     runs-on: ubuntu-22.04
     outputs:
-      PLUGIN_NAME: ${{ env.PLUGIN_NAME }}
-      PLUGIN_URL: ${{ env.PLUGIN_URL }}
+      PLUGIN_NAME: ${{ steps.set-vars.outputs.PLUGIN_NAME }}
+      PLUGIN_URL: ${{ steps.set-vars.outputs.PLUGIN_URL }}
     steps:
-      - run: echo "Exposing env vars"
+      - id: set-vars
+        run: |
+          echo "PLUGIN_NAME=${{ env.PLUGIN_NAME }}" >> $GITHUB_ENV
+          echo "PLUGIN_URL=${{ env.PLUGIN_URL }}" >> $GITHUB_ENV
+          echo "::set-output name=PLUGIN_NAME::${{ env.PLUGIN_NAME }}"
+          echo "::set-output name=PLUGIN_URL::${{ env.PLUGIN_URL }}"
   generate-schema:
     uses: Isengo1989/plugin-ci/.github/workflows/plugin.yml@main
     with:
