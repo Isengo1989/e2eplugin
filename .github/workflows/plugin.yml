@@ -7,10 +7,12 @@ on:
         description: "Shopware version"
         required: true
         type: string
+        default: 'v6.6.7.0'
       php_version:
         description: "PHP version"
         required: false
         type: string
+        default: '8.2'
 
 env:
   PLUGIN_NAME: E2eTest
