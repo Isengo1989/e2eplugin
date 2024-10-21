@@ -16,7 +16,7 @@ on:
 
 env:
   PLUGIN_NAME: E2eTest
-  PLUGIN_URL: github.com/Isengo1989/plugin-ci.git
+  PLUGIN_URL: github.com/Isengo1989/e2eplugin.git
 
 jobs:
   vars:
