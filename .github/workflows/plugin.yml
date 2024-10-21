@@ -1,7 +1,7 @@
 name: Call plugin CI
 
 on:
-  workflow_call:
+  workflow_dispatch:
     inputs:
       shopware_version:
         description: "Shopware version"
