@@ -1,4 +1,4 @@
-name: Update Admin API
+name: Call plugin CI
 
 on:
   workflow_call:
