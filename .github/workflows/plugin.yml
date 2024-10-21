@@ -17,16 +17,6 @@ env:
   PLUGIN_URL: github.com/Isengo1989/plugin-ci.git
 
 jobs:
-
-  save-file:
-    name: "Save file"
-    runs-on: ubuntu-latest
-    steps:
-      - name: Upload original file
-        uses: actions/upload-artifact@v4
-        with:
-          name: plugin-files
-          path: .
   # This workflow contains a single job called "build"
   generate-schema:
     uses: Isengo1989/plugin-ci/.github/workflows/plugin.yml@main
