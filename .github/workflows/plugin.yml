@@ -1,0 +1,41 @@
+name: Update Admin API
+
+on:
+  workflow_call:
+    inputs:
+      shopware_version:
+        description: "Shopware version"
+        required: true
+        type: string
+      php_version:
+        description: "PHP version"
+        required: false
+        type: string
+
+
+env:
+  PLUGIN_NAME: E2eTest
+  PLUGIN_URL: github.com/Isengo1989/plugin-ci.git
+
+jobs:
+
+  save-file:
+    name: "Save file"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+      - shell: bash
+
+      - name: Upload original file
+        uses: actions/upload-artifact@v4
+        with:
+          name: plugin-files
+          path: .
+  # This workflow contains a single job called "build"
+  generate-schema:
+    uses: Isengo1989/plugin-ci/.github/workflows/plugin.yml@main
+    with:
+      shopware_version: ${{ inputs.shopware_version }}
+      php_version: ${{ inputs.php_version }}
+    secrets: inherit

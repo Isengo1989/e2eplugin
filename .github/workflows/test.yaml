@@ -3,10 +3,10 @@ name: Build and Run Shopware 6 with E2ETest
 on:
   push:
     branches:
-      - main
+      - testTODO
   pull_request:
     branches:
-      - main
+      - testTODO
 
 jobs:
   generate_api_schema:
