@@ -12,7 +12,6 @@ on:
         required: false
         type: string
 
-
 env:
   PLUGIN_NAME: E2eTest
   PLUGIN_URL: github.com/Isengo1989/plugin-ci.git
