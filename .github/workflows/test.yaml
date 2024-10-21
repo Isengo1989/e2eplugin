@@ -50,6 +50,9 @@ jobs:
           git config --global --add safe.directory /__w/e2eplugin/e2eplugin
           git checkout $SWTAG
 
+      - name: Install Composer dependencies
+        run: composer install
+
       - name: Pull E2ETest content
         run: |
           ./bin/console plugin:refresh
