@@ -51,8 +51,11 @@ jobs:
           git checkout $SWTAG
 
       - name: Install Composer dependencies
-        run: composer install
+        run: |
+          composer install
+          composer run init:db
 
       - name: Pull E2ETest content
         run: |
           ./bin/console plugin:refresh
+          ./bin/console plugin:install --activate E2ETest
