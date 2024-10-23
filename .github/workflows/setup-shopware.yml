@@ -50,3 +50,8 @@ jobs:
           cd custom/plugins/${{ env.PLUGIN_NAME }}/src/Resources/app/dev/test/e2e
           npm install
           CYPRESS_baseUrl=http://localhost:8000 npm run e2e:chrome
+      - name: Upload Cypress Screenshots
+        uses: actions/upload-artifact@v3
+        with:
+          name: cypress-screenshots
+          path: custom/plugins/${{ env.PLUGIN_NAME }}/src/Resources/app/dev/test/e2e/cypress/screenshots
