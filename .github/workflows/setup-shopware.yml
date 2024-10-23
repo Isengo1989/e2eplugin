@@ -43,6 +43,7 @@ jobs:
           ./bin/console plugin:refresh
           ./bin/console plugin:install ${{ env.PLUGIN_NAME }}
           ./bin/console plugin:activate ${{ env.PLUGIN_NAME }}
+          ./bin/build-storefront.sh
           ./bin/console theme:compile
           ./bin/console cache:clear
           ./bin/console plugin:refresh
