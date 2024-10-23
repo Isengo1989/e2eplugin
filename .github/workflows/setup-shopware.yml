@@ -40,6 +40,10 @@ jobs:
 
       - name: Run E2E Tests
         run: |
+          ./bin/console plugin:install ${{ inputs.plugin_name }}
+          ./bin/console plugin:activate ${{ inputs.plugin_name }}
+          ./bin/console theme:compile
+          ./bin/console sales-channel:list
           cd custom/plugins/${{ env.PLUGIN_NAME }}/src/Resources/app/dev/test/e2e
           npm install
           CYPRESS_baseUrl=http://localhost:8000 npm run e2e:chrome
