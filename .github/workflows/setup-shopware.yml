@@ -19,7 +19,7 @@ env:
   PLUGIN_URL: github.com/Isengo1989/e2eplugin.git
 
 jobs:
-  phpunit:
+  e2etest:
     runs-on: ubuntu-latest
     outputs:
       PLUGIN_NAME: ${{ steps.set-vars.outputs.PLUGIN_NAME }}
