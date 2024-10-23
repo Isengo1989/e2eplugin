@@ -1,0 +1,45 @@
+name: Call setup shopware plugin test
+
+on:
+  workflow_dispatch:
+    inputs:
+      shopware_version:
+        description: "Shopware version"
+        required: true
+        type: string
+        default: 'v6.6.7.0'
+      php_version:
+        description: "PHP version"
+        required: false
+        type: string
+        default: '8.2'
+
+env:
+  PLUGIN_NAME: E2eTest
+  PLUGIN_URL: github.com/Isengo1989/e2eplugin.git
+
+jobs:
+  phpunit:
+    runs-on: ubuntu-latest
+    outputs:
+      PLUGIN_NAME: ${{ steps.set-vars.outputs.PLUGIN_NAME }}
+      PLUGIN_URL: ${{ steps.set-vars.outputs.PLUGIN_URL }}
+    steps:
+      - name: Setup Shopware
+        uses: shopware/setup-shopware@v1
+        with:
+          shopware-version: '6.6.7.0'
+          php-version: 8.2
+          install: true
+          env: e2e
+
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          path: custom/plugins/${{ env.PLUGIN_NAME }}
+
+      - name: Run E2E Tests
+        run: |
+          cd custom/plugins/${{ env.PLUGIN_NAME }}/src/Resources/app/dev/test/e2e
+          npm install
+          CYPRESS_baseUrl=http://localhost:8000 npm run e2e:chrome
