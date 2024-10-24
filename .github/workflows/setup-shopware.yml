@@ -26,7 +26,7 @@ jobs:
       PLUGIN_URL: ${{ steps.set-vars.outputs.PLUGIN_URL }}
     steps:
       - name: Setup Shopware
-        uses: shopware/setup-shopware@main
+        uses: Isengo1989/setup-shopware@main
         with:
           shopware-version: ${{ inputs.shopware_version }}
           php-version: ${{ inputs.php_version }}
