@@ -26,13 +26,14 @@ jobs:
       PLUGIN_URL: ${{ steps.set-vars.outputs.PLUGIN_URL }}
     steps:
       - name: Setup Shopware
-        uses: Isengo1989/setup-shopware@main
+        uses: shopware/setup-shopware@main
         with:
           shopware-version: ${{ inputs.shopware_version }}
           php-version: ${{ inputs.php_version }}
           install: true
           env: e2e
           installStorefront: true
+          installAdmin: true
 
       - name: Checkout
         uses: actions/checkout@v3
