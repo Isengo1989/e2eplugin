@@ -28,8 +28,8 @@ jobs:
       - name: Setup Shopware
         uses: shopware/setup-shopware@main
         with:
-          shopware-version: 'v6.6.7.0'
-          php-version: 8.2
+          shopware-version: ${{ inputs.shopware_version }}
+          php-version: ${{ inputs.php_version }}
           install: true
           env: e2e
 
