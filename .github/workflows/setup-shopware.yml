@@ -36,11 +36,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
+          token: ${{ secrets.GITHUB_TOKEN }}
           path: custom/plugins/${{ env.PLUGIN_NAME }}
 
       - name: Run E2E Tests
         run: |
-          composer build:js:storefront
           ./bin/console plugin:refresh
           ./bin/console plugin:install ${{ env.PLUGIN_NAME }}
           ./bin/console plugin:activate ${{ env.PLUGIN_NAME }}
