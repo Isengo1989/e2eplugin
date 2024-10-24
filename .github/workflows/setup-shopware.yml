@@ -43,11 +43,11 @@ jobs:
           ./bin/console plugin:refresh
           ./bin/console plugin:install ${{ env.PLUGIN_NAME }}
           ./bin/console plugin:activate ${{ env.PLUGIN_NAME }}
+          ./bin/console theme:refresh
           ./bin/console theme:compile
           ./bin/console cache:clear
           ./bin/console plugin:refresh
           ./bin/console sales-channel:list
-          ./bin/console theme:change Storefront --all
           cd custom/plugins/${{ env.PLUGIN_NAME }}/src/Resources/app/dev/test/e2e
           npm install
           CYPRESS_baseUrl=http://localhost:8000 npm run e2e:chrome
