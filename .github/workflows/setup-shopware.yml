@@ -32,6 +32,7 @@ jobs:
           php-version: ${{ inputs.php_version }}
           install: true
           env: e2e
+          installStorefront: true
 
       - name: Checkout
         uses: actions/checkout@v3
